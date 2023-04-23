@@ -1,0 +1,82 @@
+body{
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,193,249,0.7175245098039216) 35%, rgba(244,156,255,1) 100%);
+}
+
+.userDetails {
+  margin: auto;
+  position: relative;
+  width: 20%;
+  border: 3px solid #FA4EAB;
+  padding: 10px;
+  font-family: Verdana, sans-serif;
+  background: #FE83C6;
+  border-radius: 10px;
+  box-shadow: 1px 1px 20px #323232;
+}
+
+
+h1{
+  text-align: center;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+  font-size: 60px;
+}
+
+p{
+  text-align: center;
+}
+
+input[type=text], input[type=file], select{
+  border-width: thick 10px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 10px #323232;
+  opacity: .7;
+  transition: .2s;
+
+}
+
+input[type=text]:hover, select:hover, textarea:hover, input[type=file]:hover{
+  opacity: 1;
+}
+
+
+button {
+  background-color: #FFF2F9; 
+  border: none;
+  color: #323232;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 1px 1px 10px #323232;
+}
+
+
+h5{
+   text-align: center;
+
+}
+
+textarea {
+    resize: none;
+    border-radius: 10px;
+    font-size: 18px;
+    opacity: .7;
+    transition: .2s;
+    box-shadow: 1px 1px 10px #323232;
+     width: 100%;
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;         /* Opera/IE 8+ */
+}
+

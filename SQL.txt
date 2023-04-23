@@ -1,0 +1,68 @@
+CREATE TABLE `epiz_31203799_loveconnect`.`users` ( `userId` INT(10) NULL DEFAULT NULL AUTO_INCREMENT ,
+ `username` VARCHAR(12) NULL DEFAULT NULL , `password` VARCHAR(30) NULL DEFAULT NULL , 
+`isAdmin` BOOLEAN NULL DEFAULT FALSE , PRIMARY KEY (`userId`)) ENGINE = MyISAM; 
+
+CREATE TABLE `epiz_31203799_loveconnect`.`userdetails` ( `userId` INT(10) NOT NULL , 
+`firstname` VARCHAR(16) NULL DEFAULT NULL , `lastname` VARCHAR(16) NULL DEFAULT NULL , 
+`gender` VARCHAR(16) NULL DEFAULT NULL , 
+`age` INT(2) NULL DEFAULT NULL , `city` VARCHAR(16) NULL DEFAULT NULL , 
+`bio` VARCHAR(255) NULL DEFAULT NULL ,
+`job` VARCHAR(30), `hobbies` VARCHAR(100), `university` VARCHAR(30), `contact` VARCHAR(30)) ENGINE = MyISAM;
+
+ALTER TABLE userdetails
+ADD COLUMN interests VARCHAR(16) AFTER hobbies;
+
+ALTER TABLE `userdetails`
+  ADD CONSTRAINT `userdetails_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`);
+
+CREATE TABLE `epiz_31203799_loveconnect`.`userpreferences` ( `userId` INT(10) NOT NULL , 
+`gender` VARCHAR(16) NULL DEFAULT NULL , 
+`hobbies` VARCHAR(100) NULL DEFAULT NULL , 
+`university` VARCHAR(30) NULL DEFAULT NULL , 
+`city` VARCHAR(30) NULL DEFAULT NULL , 
+`age_high` INT(2) NULL DEFAULT NULL , 
+`age_low` INT(2) NULL DEFAULT NULL ) ENGINE = MyISAM; 
+
+ALTER TABLE `userpreferences`
+  ADD CONSTRAINT `userpreferences_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`);
+
+CREATE TABLE `epiz_31203799_loveconnect`.`likes` ( `likeId` INT(10) NOT NULL AUTO_INCREMENT , 
+`userId_Sent` INT(10) NOT NULL , 
+`userId_Received` INT(10) NOT NULL , PRIMARY KEY (`likeId`)) ENGINE = MyISAM; 
+
+ALTER TABLE `likes`
+  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`userId_Sent`) REFERENCES `users` (`userId`);
+
+ALTER TABLE `likes`
+  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`userId_Received`) REFERENCES `users` (`userId`);
+
+CREATE TABLE `epiz_31203799_loveconnect`.`not_interested` ( `Id` INT(10) NOT NULL AUTO_INCREMENT , 
+`userId_Sent` INT(10) NOT NULL , `userId_Received` INT(10) NOT NULL , PRIMARY KEY (`Id`)) ENGINE = MyISAM; 
+
+ALTER TABLE `not_interested`
+  ADD CONSTRAINT `not_interested_ibfk_1` FOREIGN KEY (`userId_Sent`) REFERENCES `users` (`userId`);
+
+ALTER TABLE `not_interested`
+  ADD CONSTRAINT `not_interested_ibfk_2` FOREIGN KEY (`userId_Received`) REFERENCES `users` (`userId`);
+
+CREATE TABLE `epiz_31203799_loveconnect`.`matches` ( `matchId` INT(10) NOT NULL AUTO_INCREMENT , 
+`userId_Sent` INT(10) NOT NULL , `userId_Received` INT(10) NOT NULL , PRIMARY KEY (`matchId`)) ENGINE = MyISAM; 
+
+ALTER TABLE `matches`
+  ADD CONSTRAINT `matches_ibfk_1` FOREIGN KEY (`userId_Sent`) REFERENCES `users` (`userId`);
+
+ALTER TABLE `matches`
+  ADD CONSTRAINT `matches_ibfk_2` FOREIGN KEY (`userId_Received`) REFERENCES `users` (`userId`);
+
+CREATE TABLE `epiz_31203799_loveconnect`.`banned` ( `userId` INT(10) NOT NULL , 
+`time` BIGINT(20) NULL DEFAULT NULL ) ENGINE = MyISAM; 
+
+ALTER TABLE `banned`
+  ADD CONSTRAINT `banned_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`);
+
+CREATE TABLE `epiz_31203799_loveconnect`.`images` ( `userId` INT(10) NOT NULL , 
+`img_dir` VARCHAR(255) NULL DEFAULT NULL , `img_name` VARCHAR(255) NULL DEFAULT NULL ) ENGINE = MyISAM; 
+
+
+ALTER TABLE `images`
+  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`);

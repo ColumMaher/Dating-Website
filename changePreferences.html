@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style/userdetails.css">
+  <link rel="icon" type="image/x-icon" href="images/website/icon.png">
+    <title>Search Users</title>
+  </head>
+  <body>
+
+    <div class="container ml-6">
+      <h1 class="heading">Search Users</h1>
+
+      <form class="row g-3" title = "You are not required to fill out every field" action="preferences.php" name="setPreferences" method = "post"
+       onsubmit="return validateAge()">
+
+        <script type="text/javascript" src="js/setPreferences.js"></script>
+        <div class="mt-5 col-md-6">
+          <a href="Menu.php">Return To Main Menu</a>
+        </div>
+        <div class="mt-5 col-md-6">
+          <a href="Help/searchHelp.html">Info</a>
+        </div>
+
+        <div class="mt-5 col-md-12">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender" name="gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Both</option>
+          </select>
+        </div>        
+
+        <div class="mt-5 col-md-12">
+          <label for="ageFrom">From : <span id="demoFrom"></label>
+          <input type="range" class="form-control-range" name="age_from" id="myRangeFrom" min="18" max="99" value="18">
+        </div>
+
+        <div class="mt-5 col-md-12">
+          <label for="ageTo">To : <span id="demoTo"></label>
+          <input type="range" class="form-control-range" name="age_to" id="myRangeTo" min="18" max="99" value="99">
+        </div>
+
+        <script>
+          var sliderFrom = document.getElementById("myRangeFrom");
+          var outputFrom = document.getElementById("demoFrom");
+          var sliderTo = document.getElementById("myRangeTo");
+          var outputTo = document.getElementById("demoTo");
+          outputFrom.innerHTML = sliderFrom.value;
+          sliderFrom.oninput = function() {
+            outputFrom.innerHTML = this.value;
+          }
+
+          outputTo.innerHTML = sliderTo.value;
+          sliderTo.oninput = function() {
+            outputTo.innerHTML = this.value;
+          }            
+        </script>   
+
+        <div class="mt-5 col-md-12">
+          <h3>Advanced Options</h3>
+        </div>  
+
+        <div class="mt-5 col-md-6">
+          <label for="city" name="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" name= "city" maxlength="60" list="cities">
+          <datalist id="cities">
+            <option>Limerick</option>
+            <option>Cork</option>
+            <option>Dublin</option>
+            <option>Belfast</option>
+            <option>London</option>
+            <option>New York</option>
+            <option>Tokyo</option>
+          </datalist>
+        </div>      
+
+        <div class="mt-5 col-md-6">
+          <label for="uni" name="uni" class="form-label">University</label>
+          <input type="text" class="form-control" id="uni" name= "uni" maxlength="60" list="universities">
+          <datalist id="universities">
+            <option>University Of Limerick</option>
+            <option>NUI Galway</option>
+            <option>University College Dublin</option>
+            <option>Trinity College</option>
+            <option>Dublin City College</option>
+            <option>Maynooth University</option>
+            <option>University College Dublin</option>
+          </datalist>
+        </div>                 
+
+        <div class="mt-5 col-md-12">
+          <label for="hobbies" name="hobbies" class="form-label">Hobbies</label>
+          <input type="text" class="form-control" id="hobbies" name= "hobbies" maxlength="100" list="hobbies">
+          <small>Enter hobbies like : Running,Swimming,Climbing. Maximum of 3</small>
+          <datalist id="hobbies">
+            <option>Cycling</option>
+            <option>Swimming</option>
+            <option>Running</option>
+            <option>Football</option>
+            <option>GAA</option>
+            <option>Tennis</option>
+            <option>Gaming</option>
+          </datalist>
+        </div>  
+      <div class="mt-5 mb-5 col-md-12 text-center">
+        <button type="submit" class="submit-button" title="Searching will provided you with an array of users that match the criteria you have set">Search</button>
+      </div> 
+      </form>
+    </div>
+    <div class="container ml-6 mt-5 mb-5">
+      <h1 class="heading">User Search</h1>
+      <form class="row g-3" title = "Both firstname and lastname are required" action="searchedUserProfile.php" method="post">
+        <div class="mt-5 mb-5 col-md-6">
+          <label for="firstname" name="firstname" class="form-label">Firstname</label>
+          <input type="text" class="form-control" id="firstname" name= "firstname" maxlength="30" required>
+        </div>      
+
+        <div class="mt-5 mb-5 col-md-6">
+          <label for="lastname" name="lastname" class="form-label">Lastname</label>
+          <input type="text" class="form-control" id="lastname" name= "lastname" maxlength="60" required>
+        </div> 
+          <div class="mt-5 mb-5 col-md-12 text-center">
+            <input type="submit" class = "submit" title = "You will find the user with the name provided" name="action" value="Find User">
+          </div>                  
+      </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+body{
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,193,249,0.7175245098039216) 35%, rgba(244,156,255,1) 100%);
+
+}
+
+
+a{
+	color: black;
+}
+
+
+.banner .info{
+	margin-top: 15%;
+	transform: translateY(-15%);
+}
+
+.banner .link{
+	margin-top: 15%;
+	transform: translateY(-15%);
+}
+
+.banner h1{
+	font-size: 4.5em;
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
+.banner p{
+	font-size: 1.5em;
+	color: grey;
+}
+
+.banner .info .submit{
+	margin-left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	background-color: white;
+	height: 50px;
+	width:  50%;
+	border-radius: 60px;
+	font-weight: 600;
+	transition: 0.7s;
+}
+
+.banner .info .submit:hover{
+	background-color: black;
+	color: white;
+	transition: 0.7s;
+}
+
+
+
